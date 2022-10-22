@@ -18,6 +18,10 @@ Project 8: HTML / Javascript Fund Me (Full Stack / Front End)
 
 A very trivial HTML/Javascript website to connect your metamask wallet and interact with the Fund Me contract.
 
+copied the ethers.js file and added it to our page, so we manually added ethers lib to our local front-end.
+
+With the Ethers Web3Provider takes the endpoint provided by metamask/ window.ethereum and can create a provider from it.
+
 Project 9: Hardhat Smart Contract Lottery
 Project 10: NextJS Smart Contract Lottery (Full Stack / Front End)
 Project 11: Hardhat Starter Kit
