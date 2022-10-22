@@ -11,7 +11,13 @@ Deployments are done with hardhat deploy and chainlink price feeds are used aswe
 The deploy scripts checks for development network, so these same scripts can be used for any network.
 an extra configuration file helper-hardhat-config is used to specify extra config paramters.
 
+It contains unit test for local testing and staging tests for test used on goerli.
+Also two scripts are added to fund or withdraw eth from contracts.
+
 Project 8: HTML / Javascript Fund Me (Full Stack / Front End)
+
+A very trivial HTML/Javascript website to connect your metamask wallet and interact with the Fund Me contract.
+
 Project 9: Hardhat Smart Contract Lottery
 Project 10: NextJS Smart Contract Lottery (Full Stack / Front End)
 Project 11: Hardhat Starter Kit
