@@ -20,5 +20,9 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "hardhat-deploy": "^0.11.18"
+  },
+  "scripts": {
+    "test": "yarn hardhat test",
+    "test:staging": "yarn hardhat test --network goerli"
   }
 }
