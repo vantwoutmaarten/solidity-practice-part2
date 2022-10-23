@@ -41,10 +41,26 @@ async function fund() {
       const tx = await contract.fund({
         value: ethers.utils.parseEther(ethAmount),
       });
-      await tx.wait();
-      console.log("tx", tx);
+      await listenForTransactionMing(tx, provider);
+
+      console.log("done");
     } catch (error) {
       console.log("error", error);
     }
   }
+}
+
+function listenForTransactionMing(transactionResponse, provider) {
+  console.log(`Mining ${transactionResponse.hash}`);
+  //Listen for transaction=s and events
+  return new Promise((resolve, reject) => {
+    const txReceipt = transactionResponse.hash;
+    provider.once(txReceipt, (txReceipt) => {
+      console.log(`Mined ${txReceipt.hash}`);
+      console.log(
+        `Completed with status ${txReceipt.confirmations} confirmations`
+      );
+      resolve();
+    });
+  });
 }
