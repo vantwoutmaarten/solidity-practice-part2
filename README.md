@@ -23,6 +23,10 @@ copied the ethers.js file and added it to our page, so we manually added ethers 
 With the Ethers Web3Provider takes the endpoint provided by metamask/ window.ethereum and can create a provider from it.
 
 Project 9: Hardhat Smart Contract Lottery
+
+People will be able to enter the raffle and a verfifiable random winner will be picked.
+The winner will be selected every X minutes, this will be done with chainlink keepers or gelato.
+
 Project 10: NextJS Smart Contract Lottery (Full Stack / Front End)
 Project 11: Hardhat Starter Kit
 Project 12: Hardhat ERC20s
