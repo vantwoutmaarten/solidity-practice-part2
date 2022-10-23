@@ -3,8 +3,12 @@ import { abi, contractAddress } from "./constants.js";
 
 const connectButton = document.getElementById("connectButton");
 const fundButton = document.getElementById("fundButton");
+const withdrawButton = document.getElementById("withdrawButton");
+const balanceButton = document.getElementById("balanceButton");
 connectButton.onclick = connect;
 fundButton.onclick = fund;
+withdrawButton.onclick = withdraw;
+balanceButton.onclick = getBalance;
 
 async function connect() {
   if (typeof window.ethereum != "undefined") {
@@ -28,8 +32,7 @@ async function connect() {
 }
 
 async function fund() {
-  const ethAmount = "7";
-  console.log("ethAmount", ethAmount);
+  const ethAmount = document.getElementById("ethAmount").value;
   if (typeof window.ethereum != "undefined") {
     // need a provider/connection to the blockchain
     // signer /wallet with gas
@@ -50,6 +53,20 @@ async function fund() {
   }
 }
 
+async function withdraw() {
+  if (typeof window.ethereum != "undefined") {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, abi, signer);
+    try {
+      const transactionResponse = await contract.withdraw();
+      await listenForTransactionMing(transactionResponse, provider);
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+}
+
 function listenForTransactionMing(transactionResponse, provider) {
   console.log(`Mining ${transactionResponse.hash}`);
   //Listen for transaction=s and events
@@ -63,4 +80,12 @@ function listenForTransactionMing(transactionResponse, provider) {
       resolve();
     });
   });
+}
+
+async function getBalance() {
+  if (typeof window.ethereum != "undefined") {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const balance = await provider.getBalance(contractAddress);
+    console.log(ethers.utils.formatEther(balance));
+  }
 }
