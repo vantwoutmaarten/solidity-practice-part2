@@ -56,7 +56,7 @@ contract Raffle is VRFConsumerBaseV2 {
     }
 
     function enterRaffle() public payable {
-        if (msg.value > i_entranceFee) {
+        if (msg.value < i_entranceFee) {
             revert Raffle_NotEnoughETHEntered();
         }
         if (s_raffleState != RaffleState.OPEN) {
@@ -147,5 +147,9 @@ contract Raffle is VRFConsumerBaseV2 {
 
     function getNumWords() public pure returns (uint256) {
         return NUM_WORDS;
+    }
+
+    function getInterval() public view returns (uint256) {
+        return i_interval;
     }
 }
