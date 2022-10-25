@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/maartenvantwout/Desktop/solidity-practice-part2/project-9/contracts/Raffle.sol": {
-      "lastModificationDate": 1666604129480,
-      "contentHash": "7982d94320c802923e9891778daaa4c8",
+      "lastModificationDate": 1666729909767,
+      "contentHash": "44b6ffb56dbd72b825f83485d0cdb479",
       "sourceName": "contracts/Raffle.sol",
       "solcConfig": {
         "version": "0.8.17",
